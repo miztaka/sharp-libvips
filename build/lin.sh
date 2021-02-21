@@ -391,12 +391,12 @@ curl -OL https://imagemagick.org/download/ImageMagick-${VERSION_IMAGEMAGICK}.tar
 tar xzf ImageMagick-${VERSION_IMAGEMAGICK}.tar.gz
 rm ImageMagick-${VERSION_IMAGEMAGICK}.tar.gz
 cd */.
-./configure \
+PKG_CONFIG="pkg-config --static" ./configure \
   --host=${CHOST} \
   --prefix=${TARGET} \
-  --enable-shared \
-  --disable-static \
-  --with-modules \
+  --disable-shared \
+  --enable-static \
+  --without-modules \
   --without-bzlib \
   --without-dps \
   --without-freetype \
